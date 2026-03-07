@@ -1,6 +1,2 @@
 # Microcontroller-Training
 Microcontroller Training
-
-```cpp
-pinMode(LED, OUTPUT);
-```
