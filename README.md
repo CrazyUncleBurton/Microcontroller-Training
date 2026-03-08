@@ -1,5 +1,6 @@
-# Microcontroller-Training
-Microcontroller Training
+# Microcontroller Training v1
+by Bryan A. "CrazyUncleBurton" Thompson  
+Last Updated 3/7/2026  
 
 ## Overview
 
