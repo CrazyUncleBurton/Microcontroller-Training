@@ -25,18 +25,14 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 ## Lessons
 
 1. Configuring the Integrated Development Environment
-2. Hello World
-3. Digital Outputs
-4. Digital Inputs
-5. Interrupts
-6. Analog to Digital Conversion (ADC)
-7. Digital to Analog Conversion (DAC)
-8. Pulse Width Modulation
-9. LCD (Text)
-10. LCD (Data)
-11. LCD (Graphics)
-12. Graphical User Interface
-13. RGB LEDs
-14. Source Control
-
-## References
+2. Getting Started / Hello World
+11. LCD (Text/Data/Graphics)
+3. Digital Inputs and Outputs
+4. Pulse Width Modulation / Servo and Motor Control
+5. Analog to Digital Conversion (ADC) and Digital to Analog Conversion (DAC)
+6. Interrupts and Timers
+8. UART
+9. I2C
+10. SPI
+11. Graphical User Interface (LVGL and Squareline Studio)
+12. Source Control
