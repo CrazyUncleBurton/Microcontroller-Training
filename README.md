@@ -37,12 +37,9 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 10. SPI - Not Started
 11. Graphical User Interface (LVGL and Squareline Studio) - Not Started
 12. Source Control - Started
+13. Debugging
+14. Testing
 
 ## Future Subjects
 
-1. Testing
-2. Debugging
-3. Starting a program from scratch
-
-
-
+1. Starting a program from scratch

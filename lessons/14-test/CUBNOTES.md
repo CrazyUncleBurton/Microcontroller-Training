@@ -4,9 +4,3 @@ by Bryan A. "CrazyUncleBurton" Thompson
 Last Updated 3/8/2026  
 
 ## Goals
-
-UART Notes
-
-Use a USB to RS232 adapter and a terminal program
-Read GPS - actual UART port?
-Laser Communication?
