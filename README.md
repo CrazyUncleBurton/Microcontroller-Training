@@ -43,3 +43,14 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 ## Future Subjects
 
 1. Starting a program from scratch
+
+
+## References
+
+TeX Reference:  <https://www.overleaf.com/>
+MikTeX: <https://miktex.org/>
+
+Python: <https://www.python.org/>
+SchemDraw Reference:  <https://www.overleaf.com/>
+
+
