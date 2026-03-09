@@ -4,7 +4,7 @@ Last Updated 3/9/2026
 
 ## Overview
 
- These tutorials will allow you to create electric circuits controlled by a computer, and to create programs which have the ability to control the physical world.  
+These tutorials will allow you to create electric circuits controlled by a computer, and to create programs which have the ability to control the physical world.  
 
 ## Prerequisites
 
