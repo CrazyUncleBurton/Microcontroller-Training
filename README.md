@@ -1,6 +1,6 @@
 # Microcontroller Training v1
 by Bryan A. "CrazyUncleBurton" Thompson  
-Last Updated 3/7/2026  
+Last Updated 3/9/2026  
 
 ## Overview
 
@@ -25,15 +25,24 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 
 ## Lessons
 
-1. Configuring the Integrated Development Environment
-2. Getting Started / Hello World
-11. LCD (Text/Data/Graphics)
-3. Digital Inputs and Outputs
-4. Pulse Width Modulation / Servo and Motor Control
-5. Analog to Digital Conversion (ADC) and Digital to Analog Conversion (DAC)
-6. Interrupts and Timers
-8. UART
-9. I2C
-10. SPI
-11. Graphical User Interface (LVGL and Squareline Studio)
-12. Source Control
+1. Configuring the Integrated Development Environment - Done and untested
+2. Getting Started / Hello World - Started
+3. LCD (Text/Data/Graphics) - Started
+4. Digital Inputs and Outputs - Started
+5. Pulse Width Modulation / Servo and Motor Control - Not Started
+6. Analog to Digital Conversion (ADC) and Digital to Analog Conversion (DAC) - Not Started
+7. Interrupts and Timers - Not Started
+8. UART - Not started
+9. I2C - Not started
+10. SPI - Not Started
+11. Graphical User Interface (LVGL and Squareline Studio) - Not Started
+12. Source Control - Started
+
+## Future Subjects
+
+1. Testing
+2. Debugging
+3. Starting a program from scratch
+
+
+
