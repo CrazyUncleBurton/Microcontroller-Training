@@ -1,5 +1,5 @@
 /*
-  Lesson 2A - Hello World
+  Lesson 2 - Hello World
   by Bryan A. "CrazyUncleBurton" Thompson
   Last Updated 3/9/2026
 */

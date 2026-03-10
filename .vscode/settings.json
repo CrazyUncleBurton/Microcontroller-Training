@@ -8,7 +8,8 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-pdf",
-        "-outdir=%OUTDIR%",
+        "-auxdir=%DIR%/build",
+        "-outdir=%DIR%",
         "%DOC%"
       ]
     },
@@ -19,7 +20,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-output-directory=%OUTDIR%",
+        "-aux-directory=%DIR%/build",
         "%DOC%"
       ]
     },
@@ -30,7 +31,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-output-directory=%OUTDIR%",
+        "-aux-directory=%DIR%/build",
         "%DOC%"
       ]
     }
@@ -56,5 +57,6 @@
     }
   ],
   "latex-workshop.latex.recipe.default": "first",
-  "latex-workshop.latex.outDir": "%DIR%/build"
+  "latex-workshop.latex.outDir": "%DIR%",
+  "editor.inlineSuggest.enabled": false
 }

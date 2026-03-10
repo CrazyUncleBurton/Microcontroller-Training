@@ -1,0 +1,325 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage[skip=10pt, indent=20pt]{parskip}
+\graphicspath{{./figures/}{./lessons/02-hello-world/assets/docs/figures/}}
+
+\title{Lesson 2 - Hello World}
+\author{Bryan A. \textit{CrazyUncleBurton} Thompson \\ \textit{bryan@batee.com}}
+\date{March 9, 2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+This lesson will show you how to compile and upload a basic “Hello World” 
+program to a microcontroller.
+
+\section*{Theory}
+This is our first program and we’re learning a lot of things all at once. 
+We make the circuit as easy as possible by using a pre-built module which 
+only connects one way to the microcontroller.
+
+\section*{Hardware Required}
+
+The following hardware is needed for this lesson:
+
+1-M5Stack Tab5 Microcontroller Development Board
+
+1-M5Stack Dual LED Module
+
+1-4 wire M5Stack sensor cable 
+
+1-USB cable to connect the Tab5 USB-C port to your PC
+\vspace{30mm}
+
+
+\section*{Objectives}
+
+\begin{itemize}
+  \item Familiarity with the Tab5 development board
+  \item Familiarity with VS Code IDE
+  \item Create our first electric circuit
+  \item Compile our first program
+  \item Upload a basic “Hello World” program to the development board
+  \item Test the program
+\end{itemize}
+\vspace{2mm}
+
+
+\section*{The M5Stack Tab5 Microcontroller Development Board}
+
+M5Stack.com is owned by Espressif, the manufacturer of the microcontroller 
+inside the Tab5.  We chose it for the ultimate in support by the manufacturer.
+The M5Stack Tab5 microcontroller development board has an ESP32-P4 
+microcontroller with three cores, two of which run at 360MHz.  
+
+It has an ESP32-C6 Communications IC with 
+support for 2.4 GHz Wi-Fi 6, Bluetooth 5 (LE), Zigbee 3.0, and Thread 1.3.  
+It has a 5” LCD touchscreen, camera, microSD slot, Audio Inputs and Outputs, 
+Microphones, a Real Time Clock, a 6-axis accelerometer/gyro sensor, and many 
+ways to connect to external circuits!
+
+The manufacturers datasheet for the Tab5 is located here.  You can find information 
+like schematics, external hardware connections and more: \\ 
+\url{https://docs.m5stack.com/en/core/Tab5}
+
+M5Stack provides a super-rich development ecosystem, including sensors, modules
+and accessories:  \\
+\url{https://shop.m5stack.com/collections/unit }
+
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .8\linewidth]{m5stack-front.png}
+    \caption{The M5Stack Tab5 Development Board}
+\end{figure}
+
+\vspace{2mm}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .8\linewidth]{m5stack-bottom.png}
+    \caption{Tab5 Bottom Side}
+\end{figure}
+\vspace{2mm}
+ 
+\begin{enumerate}
+    \item We can supply power to the Tab5 through its USB-C port.  Connect the Tab5 USB-C port to your computer with a USB cable.
+    \item The white “U” shaped button on the left is the On/Reset/Off button.  
+    \item Press the button once to turn on the screen.  You should see the factory firmware running on the controller.  It shows some useful data about the hardware and some live data on the LCD:
+    \vspace{2mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = .8\linewidth]{tab5-on.png}
+        \caption{Tab5 Running Factory Firmware}
+    \end{figure}
+    \vspace{2mm}
+    \item Press and release the power button once.  Note that the unit powers off and back on (we call this a reset).
+    \item Double press and release the power button to turn the controller off.
+    
+\end{enumerate}
+
+\vspace{2mm}
+
+\section*{The PORT.A Input / Output Connector}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .2\linewidth]{m5stack-porta-connector.png}
+    \caption{The PORT.A Input/Output Connector}
+\end{figure}
+\vspace{2mm}
+\vspace{5mm}
+The connector is used to quickly connect various sensors to the Tab5. It 
+enables quick, plug-and-play connectivity for sensors and actuators, often 
+powered by the 5V rail. PORT.A can be configured for GPIO (digital I/O), or 
+UART serial communication as well as I2C serial communication.  We call this 
+Rapid Prototyping because the circuit can be built without building a circuit 
+board. 
+\vspace{5mm}
+This is a 4-pin HY2.0-4P Grove connector.  It's close to a 4 pin JST PH connector.
+\vspace{5mm}
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .8\linewidth]{porta-table.png}
+    \caption{PORT.A Pins and their Functions}
+\end{figure}
+\vspace{2mm}
+\vspace{5mm}
+There are four pins on the PORT.A connector:
+
+\begin{itemize}
+    \item Black - GND - This is the common reference terminal against which 
+    other outputs are measured.
+    \item Red - 5V - This is a 5V reference / power supply from the port, 
+    intended to power any sensors or actuators.  Why is it 5V when we're 
+    working in a 3.3V ecosystem?  My guess is to let us power and communicate 
+    with 5V sensors as well as 3.3V ones.  
+    \item Yellow - G53 - This is connected to pin G53 on the microcontroller.  
+    It can be turned on and off programmatically. When it's on, it will be 
+    +3.3V with respect to ground.  When it's off, it will be 0V.
+    \item White - G54 - This is connected to pin G54 on the microcontroller.  
+    It can be turned on and off programmatically. When it's on, it will be 
+    +3.3V with respect to ground.  When it's off, it will be 0V.
+\end{itemize}
+\vspace{2mm}
+PORT.A has some other special functions which we will cover in later lessons.
+\vspace{75mm}
+
+\section*{The Dual LED Module}
+For any Hello World program, we need an LED to blink.  Unfortunately, 
+there's not a blinkable LED built into our Tab5 Dev board (a huge oversight on the part 
+of M5Stack).  CrazyUncleBurton didn't let that stop him - he bought some M5Stack 
+prototype modules and built his own!
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .8\linewidth]{dual-led-module.png}
+    \caption{The Dual LED Module Schematic}
+\end{figure}
+\vspace{2mm}
+There are two independent circuits inside the Dual LED Module.  OK, they share 
+the ground terminal of the port, but that's it.
+
+The green LED is connected to GPIO pin G53.  A 1K resistor limits current to 
+protect the LED and the microcontroller.  When GPIO pin G53 is set to a logic 
+high, the ESP32 outputs 3.3V to pin G53 and the green LED lights.  When GPIO 
+pin G53 is set to a logic low, the ESP32 outputs 0V to pin G53 and the green 
+LED turns off.
+
+The red LED is connected to GPIO G54.  A 1K resistor limits current to protect 
+the LED and the microcontroller.  When GPIO Pin G54 is set to a logic high, the 
+ESP32 outputs 3.3V to pin G54 and the red LED lights.  When GPIO pin G54 is set 
+to a logic low, the ESP32 outputs 0V to pin G53 and the green LED turns off.
+
+\vspace{5mm}
+
+\section*{Connections}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .6\linewidth]{cable.png}
+    \caption{The M5Stack Grove Cable}
+\end{figure}
+\vspace{2mm}
+Note that there are polarity tabs molded into the cable plug and the 
+corresponding sockets which only lets the cable connect the proper way:
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .5\linewidth]{cable-end.png}
+    \caption{Grove Connector Polarizing Tabs}
+\end{figure}
+\vspace{2mm}
+\begin{enumerate}
+    \item To connect the Dual LED module to the Tab5 dev board, use the 4 wire cable 
+supplied with the module. Plug one end into the Dual LED module. Plug the other end into the Tab5 
+dev board.  
+    \item Connect the Tab5 USB-C port to the computer using whatever USB cable this takes.
+\end{enumerate}
+
+\vspace{2mm}
+
+\section*{The Program}
+
+Our program is located in the folder \path{02-hello-world/code/2-blink}:
+
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 1\linewidth]{program-1.png}
+    \caption{Hello World Program - Part 1}
+\end{figure}
+\vspace{2mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 1\linewidth]{program-2.png}
+    \caption{Hello World Program - Part 2}
+\end{figure}
+\vspace{2mm}
+
+Lines 1-5 are a block comment that lets the user know who to yell at when this 
+doesn't work.
+
+Line 8 is an "include".  This is a library / module / shared code which adds 
+some Arduino-style commands.  Specifically, we want the \textbf{pinMode()} 
+command which lets us declare the GPIO pin to be an output, and the \textbf{digitalWrite()} 
+command which will turn GPIO pins on and off.
+
+Lines 10 and 11 create global variables of the integer type.  The variables are 
+named greenLEDPin, which we set to GPIO 53, and redLEDPin, which we set to GPIO 
+Pin 54.  
+
+Lines 15-19 form the setup() function.  This is standard Arduino form, and 
+includes all the stuff that only needs to happen once at the time of 
+microcontroller turn-on.  The pinMode() commands make the pins referenced by 
+the variables \textbf{greenLEDPin} and \textbf{redLEDPin} to be digital outputs.
+
+Digital output pins can output two levels:  
+\begin{itemize}
+    \item Digital logic level 1, or High, which makes that output pin +3.3V
+    \item Digital logic level 0, or Low, which makes that output pin 0V.
+\end{itemize}
+
+Lines 22-30 for the loop() function.  This is standard Arduino form, and 
+includes the stuff that runs in order from top to bottom.  When it gets to the
+end of the list of stuff in the loop function, it loops and runs that stuff 
+again. 
+
+\vspace{5mm}
+
+\textbf{Important Point:} Embedded programs are designed to never end 
+- they run as long as the device is turned on!
+
+\vspace{5mm}
+
+Lines 24 and 25 sets \textbf{greenLEDPin} to \textbf{High}, which turns the 
+green LED on, and sets the \textbf{redLEDPin} to \textbf{Low}, which turns 
+the red LED off.
+
+Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before proceding.
+
+Lines 27 and 28 sets \textbf{greenLEDPin} to \textbf{Low}, which turns the 
+green LED off, and sets the \textbf{redLEDPin} to \textbf{High}, which turns 
+the red LED on.
+
+Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before proceding.
+
+\vspace{50mm}
+\section*{Compiling the Program}
+
+\begin{enumerate}
+    \item See the upload port icon at the bottom of the screen. Ensure the upload port is set to Auto. 
+    \vspace{2mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = .25\linewidth]{upload-port.png}
+        \caption{PlatformIO: Upload Port}
+    \end{figure}
+    \vspace{2mm}
+    \item To compile the program and upload it to the microcontroller, click on the \textbf{PlatformIO: Build} icon at the bottom of the screen:
+    \vspace{2mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = .25\linewidth]{upload.png}
+        \caption{PlatformIO: Upload}
+    \end{figure}
+    \vspace{2mm}
+    \item Make sure the \textbf{Switch PlatformIO Project Environment} icon at the bottom of the screen is set to \textbf{2-blink}.  This will ensure that we compile the correct code (there are many individual programs in the Microcontroller Training folder):
+    \vspace{2mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = .5\linewidth]{switch-platformio-project-environment.png}
+        \caption{Switch PlatformIO Project Environment}
+    \end{figure}
+    \vspace{25mm}
+
+    \item The results of the compile and upload process are presented in the terminal window at the bottom of the screen:
+    \vspace{2mm}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width = 1\linewidth]{compiled.png}
+        \caption{Program Compiled and Uploaded Successfully}
+    \end{figure}
+    \vspace{2mm}
+
+\end{enumerate}
+\vspace{2mm}
+
+
+\vspace{2mm}
+\section*{Running the Program}
+
+When the program uploads and the microcontroller reboots, we should see the red and green LEDs alternating on and off every 1/2 second.
+
+
+\vspace{2mm}
+\section*{Conclusion}
+This completes the the Getting Started lesson.  In the next lesson, we will introduce the LCD screen.
+
+\end{document}
