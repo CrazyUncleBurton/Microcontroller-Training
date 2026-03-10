@@ -27,29 +27,45 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 
 1. Configuring the Integrated Development Environment - Done and untested
 2. Getting Started / Hello World - Started - needs images of LED module and LED module connections.
-3. LCD (Text/Data/Graphics) - Started
+3. LCD (Text/Data/Graphics/Touch) - Started
 4. Digital Inputs and Outputs - Started
-5. Serial Communication (UART / I2C / SPI) - Not started
-6. Analog to Digital Conversion (ADC) and Digital to Analog Conversion (DAC) - Not Started
-7. Interrupts / Timers / PWM - Not Started
+5. Serial Communication (UART / I2C / I2S / SPI / CAN) - Not started
+6. Analog to Digital Conversion (ADC) / Digital to Analog Conversion (DAC) / Analog Comparators / Touch - Not Started
+7. Interrupts / Timers / PWM / RMT / Countr / Watchdog / MCPWM - Not Started
 8. Graphical User Interface (LVGL and Squareline Studio) - Not Started
 9. Source Control - Started
 10. Task Scheduler / FreeRTOS - Not Started
 11. Debugging
 12. Testing
+13. Security (AES/SHA/RSA/ECC/Secure Boot/Flash Encryption/HMAC/RNG)
+14. Graphics Subsystem (that may be GUI above)
+15. CPU Subsystem (Dual Cores/Vector AI Accel/Interrupt Controller/JTAG)
+16. High Speed Peripherals (USB2/Ethernet/SDIO/SDMMC/SPI/LCD/Camera MIPI/CSI)
+17. Memory Subsystem (SRAM/Cache/PSRAM/Octal SRAM/MMU)
+18. Power Management (Clock Domains / PLL / Power Domains / Sleep Controller)
 
-## Future Subjects
+## Things to Learn / Solve
+
+* Migrate Old website to Hosted Wordpress
+* Finish the Microcontroller Tutorials
+* How do we update products in the field?
+* How to get firmware to only install on our hardware and not on generic?
+* UI for 84-89 Cluster Tester
+* How to use Multi Root Workspace
+* GIT Tutorial 
+* Low Power / Sleep / Deep Sleep
+* Augment AI with Python Persistent Memory and knowledge of goals
 
 ## Useful References
 
 ### Author Bryan A. Thompson
 
-<batee.com>
-<bryan@batee.com>
-<crazyuncleburton.com>
-<crazyuncleburton@gmail.com>  
+Biz Website <batee.com> and Email <bryan@batee.com>
+
+Personal Website <crazyuncleburton.com> and Email <crazyuncleburton@gmail.com>  
 
 ### M5Stack Links
+
 M5Stack Tab5 <https://docs.m5stack.com/en/core/Tab5>
 
 M5Stack GitHub Software <https://github.com/m5stack>
@@ -91,3 +107,5 @@ MikTeX: <https://miktex.org/>
 Python: <https://www.python.org/>
 
 SchemDraw Reference:  <https://www.overleaf.com/>
+
+Chicago Manual of Style: <https://www.chicagomanualofstyle.org/home.html>
