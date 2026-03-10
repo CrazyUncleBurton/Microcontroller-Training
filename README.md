@@ -42,8 +42,14 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 
 ## Useful References
 
-Author / Bryan A. Thompson: <batee.com> or <bryan@batee.com> or <crazyuncleburton.com> or <crazyuncleburton@gmail.com>  
+### Author Bryan A. Thompson
 
+<batee.com>
+<bryan@batee.com>
+<crazyuncleburton.com>
+<crazyuncleburton@gmail.com>  
+
+### M5Stack Links
 M5Stack Tab5 <https://docs.m5stack.com/en/core/Tab5>
 
 M5Stack GitHub Software <https://github.com/m5stack>
@@ -54,7 +60,17 @@ M5Stack M5Unified <https://docs.m5stack.com/en/arduino/m5unified/helloworld>
 
 M5Stack M5GFX <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx>
 
+M5Canvas <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx_canvas>
+
 M5UnitUnified <https://github.com/m5stack/M5UnitUnified>
+
+### GUI Creation Links
+
+LVGL <https://lvgl.io/>
+
+Squareline Studio <https://squareline.io/>
+
+### Espressif / ESP32 Links
 
 Espressif ESP32-P4 Documentation <https://www.espressif.com/en/support/documents/technical-documents?keys=&field_type_tid_parent=esp32P4Series-SoCs&field_type_tid%5B%5D=1633>
 
@@ -65,6 +81,8 @@ ESP32-P4 Datasheet Errata <https://docs.espressif.com/projects/esp-chip-errata/e
 ESP32-P4 Tech Ref Manual <https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_technical_reference_manual_en.pdf>
 
 ESP32-P4 Hardware Design Guidelines <https://docs.espressif.com/projects/esp-hardware-design-guidelines/en/latest/esp32p4/esp-hardware-design-guidelines-en-master-esp32p4.pdf>
+
+### Document Creation Links
 
 TeX Reference:  <https://www.overleaf.com/>
 
