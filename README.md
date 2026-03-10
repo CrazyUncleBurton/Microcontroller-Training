@@ -26,7 +26,7 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 ## Lessons
 
 1. Configuring the Integrated Development Environment - Done and untested
-2. Getting Started / Hello World - Started
+2. Getting Started / Hello World - Started - needs images of LED module and LED module connections.
 3. LCD (Text/Data/Graphics) - Started
 4. Digital Inputs and Outputs - Started
 5. Interrupts and Timers - Not Started
@@ -42,9 +42,6 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 15. Testing
 
 ## Future Subjects
-
-
-
 
 ## References
 
