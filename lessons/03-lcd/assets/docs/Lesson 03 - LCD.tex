@@ -63,7 +63,7 @@ There are many ways that we can write to this display:
   \item M5GFX - This is a supplied graphics library from M5Stack.  It is best 
   at displaying static Text and graphics to the LCD.  If the data changes 
   content or position over time, this will result in flickering screens.
-  \item Canvas - This is a supplied graphics library from M5Stack.  It treats 
+  \item M5Canvas - This is an extension of M5GFX which treats 
   the screen as a framebuffer or canvas or sprite.  We draw the next screen to 
   a temporary "canvas" or sprite in the background.  When the next screen has 
   been updated, we push the canvas to the display.  The result is changes
