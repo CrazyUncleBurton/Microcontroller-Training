@@ -64,8 +64,8 @@ It has a 5” LCD touchscreen, camera, microSD slot, Audio Inputs and Outputs,
 Microphones, a Real Time Clock, a 6-axis accelerometer/gyro sensor, and many 
 ways to connect to external circuits!
 
-The manufacturers datasheet for the Tab5 is located here.  You can find information 
-like schematics, external hardware connections and more: \\ 
+The manufacturers datasheet for the Tab5 is located here.  You can find 
+information like schematics, external hardware connections and more: \\ 
 \url{https://docs.m5stack.com/en/core/Tab5}
 
 M5Stack provides a super-rich development ecosystem, including sensors, modules
@@ -89,9 +89,12 @@ and accessories:  \\
 \vspace{2mm}
  
 \begin{enumerate}
-    \item We can supply power to the Tab5 through its USB-C port.  Connect the Tab5 USB-C port to your computer with a USB cable.
+    \item We can supply power to the Tab5 through its USB-C port.  Connect 
+    the Tab5 USB-C port to your computer with a USB cable.
     \item The white “U” shaped button on the left is the On/Reset/Off button.  
-    \item Press the button once to turn on the screen.  You should see the factory firmware running on the controller.  It shows some useful data about the hardware and some live data on the LCD:
+    \item Press the button once to turn on the screen.  You should see the 
+    factory firmware running on the controller.  It shows some useful data 
+    about the hardware and some live data on the LCD:
     \vspace{2mm}
     \begin{figure}[H]
         \centering
@@ -99,7 +102,8 @@ and accessories:  \\
         \caption{Tab5 Running Factory Firmware}
     \end{figure}
     \vspace{2mm}
-    \item Press and release the power button once.  Note that the unit powers off and back on (we call this a reset).
+    \item Press and release the power button once.  Note that the unit powers 
+    off and back on (we call this a reset).
     \item Double press and release the power button to turn the controller off.
     
 \end{enumerate}
@@ -155,9 +159,9 @@ PORT.A has some other special functions which we will cover in later lessons.
 
 \section*{The Dual LED Module}
 For any Hello World program, we need an LED to blink.  Unfortunately, 
-there's not a blinkable LED built into our Tab5 Dev board (a huge oversight on the part 
-of M5Stack).  CrazyUncleBurton didn't let that stop him - he bought some M5Stack 
-prototype modules and built his own!
+there's not a blinkable LED built into our Tab5 Dev board (a huge oversight on 
+the part of M5Stack).  CrazyUncleBurton didn't let that stop him - he bought 
+some prototype modules and built his own!
 \vspace{2mm}
 \begin{figure}[H]
     \centering
@@ -168,16 +172,17 @@ prototype modules and built his own!
 There are two independent circuits inside the Dual LED Module.  OK, they share 
 the ground terminal of the port, but that's it.
 
-The green LED is connected to GPIO pin G53.  A 1K resistor limits current to 
-protect the LED and the microcontroller.  When GPIO pin G53 is set to a logic 
-high, the ESP32 outputs 3.3V to pin G53 and the green LED lights.  When GPIO 
-pin G53 is set to a logic low, the ESP32 outputs 0V to pin G53 and the green 
-LED turns off.
+The green LED is connected to GPIO pin G53.  When GPIO pin G53 is set to a 
+logic high, the ESP32 outputs 3.3V to pin G53 and the green LED lights. When
+GPIO pin G53 is set to a logic low, the ESP32 outputs 0V to pin G53 and the 
+green LED turns off. A 150$\Omega$ resistor limits current to about 8.6mA to 
+protect the LED and the microcontroller and the LED.  
 
-The red LED is connected to GPIO G54.  A 1K resistor limits current to protect 
-the LED and the microcontroller.  When GPIO Pin G54 is set to a logic high, the 
-ESP32 outputs 3.3V to pin G54 and the red LED lights.  When GPIO pin G54 is set 
-to a logic low, the ESP32 outputs 0V to pin G53 and the green LED turns off.
+The red LED is connected to GPIO G54.  When GPIO Pin G54 is set to a logic high, 
+the ESP32 outputs 3.3V to pin G54 and the red LED lights.  When GPIO pin G54 is
+set to a logic low, the ESP32 outputs 0V to pin G53 and the green LED turns off. 
+A 1.8K$\Omega$ resistor limits current to 0.72mA to protect the LED and the 
+microcontroller and the LED.  
 
 \vspace{5mm}
 
@@ -198,10 +203,11 @@ corresponding sockets which only lets the cable connect the proper way:
 \end{figure}
 \vspace{2mm}
 \begin{enumerate}
-    \item To connect the Dual LED module to the Tab5 dev board, use the 4 wire cable 
-supplied with the module. Plug one end into the Dual LED module. Plug the other end into the Tab5 
-dev board.  
-    \item Connect the Tab5 USB-C port to the computer using whatever USB cable this takes.
+    \item To connect the Dual LED module to the Tab5 dev board, use the 4 wire
+    cable supplied with the module. Plug one end into the Dual LED module. Plug
+    the other end into the Tab5 dev board.  
+    \item Connect the Tab5 USB-C port to the computer using whatever USB cable 
+    this takes.
 \end{enumerate}
 
 \vspace{2mm}
@@ -229,8 +235,8 @@ doesn't work.
 
 Line 8 is an "include".  This is a library / module / shared code which adds 
 some Arduino-style commands.  Specifically, we want the \textbf{pinMode()} 
-command which lets us declare the GPIO pin to be an output, and the \textbf{digitalWrite()} 
-command which will turn GPIO pins on and off.
+command which lets us declare the GPIO pin to be an output, and the 
+\textbf{digitalWrite()} command which will turn GPIO pins on and off.
 
 Lines 10 and 11 create global variables of the integer type.  The variables are 
 named greenLEDPin, which we set to GPIO 53, and redLEDPin, which we set to GPIO 
@@ -263,19 +269,27 @@ Lines 24 and 25 sets \textbf{greenLEDPin} to \textbf{High}, which turns the
 green LED on, and sets the \textbf{redLEDPin} to \textbf{Low}, which turns 
 the red LED off.
 
-Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before proceding.
+Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before 
+proceeding.
 
 Lines 27 and 28 sets \textbf{greenLEDPin} to \textbf{Low}, which turns the 
 green LED off, and sets the \textbf{redLEDPin} to \textbf{High}, which turns 
 the red LED on.
 
-Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before proceding.
+Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before 
+proceding.
 
 \vspace{50mm}
 \section*{Compiling and Uploading the Program}
 
+The microcontroller has \textit{bootloader} code running, which 
+helps VS Code to upload programs to the microcontroller.  This code is preloaded
+on the Tab5 at the factory, and remains in place when programs are uploaded to 
+the microcontroller.
+
 \begin{enumerate}
-    \item See the upload port icon at the bottom of the screen. Ensure the upload port is set to Auto. 
+    \item See the upload port icon at the bottom of the screen. Ensure the upload 
+    port is set to Auto. 
     \vspace{2mm}
     \begin{figure}[H]
         \centering
@@ -283,7 +297,8 @@ Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before procedi
         \caption{PlatformIO: Upload Port}
     \end{figure}
     \vspace{2mm}
-    \item To compile the program and upload it to the microcontroller, click on the \textbf{PlatformIO: Build} icon at the bottom of the screen:
+    \item To compile the program and upload it to the microcontroller, click 
+    on the \textbf{PlatformIO: Build} icon at the bottom of the screen:
     \vspace{2mm}
     \begin{figure}[H]
         \centering
@@ -291,7 +306,10 @@ Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before procedi
         \caption{PlatformIO: Upload}
     \end{figure}
     \vspace{2mm}
-    \item Make sure the \textbf{Switch PlatformIO Project Environment} icon at the bottom of the screen is set to \textbf{2-blink}.  This will ensure that we compile the correct code (there are many individual programs in the Microcontroller Training folder):
+    \item Make sure the \textbf{Switch PlatformIO Project Environment} icon 
+    at the bottom of the screen is set to \textbf{2-blink}.  This will ensure
+    that we compile the correct code (there are many individual programs in
+    the Microcontroller Training folder):
     \vspace{2mm}
     \begin{figure}[H]
         \centering
@@ -300,7 +318,8 @@ Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before procedi
     \end{figure}
     \vspace{25mm}
 
-    \item The results of the compile and upload process are presented in the terminal window at the bottom of the screen:
+    \item The results of the compile and upload process are presented in the 
+    terminal window at the bottom of the screen:
     \vspace{2mm}
     \begin{figure}[H]
         \centering
@@ -311,7 +330,9 @@ Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before procedi
 
 \end{enumerate}
 
-\textbf{Protip} The compiled program is stored in FLASH memory on the microcontroller.  FLASH memory is persistent - it retains the program even after the power has been disconnected!
+The compiled program is stored in FLASH memory on the microcontroller.  FLASH 
+memory is persistent - it retains the program even after the power has been 
+isconnected!
 
 \vspace{2mm}
 
@@ -319,11 +340,13 @@ Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before procedi
 \vspace{2mm}
 \section*{Running the Program}
 
-When the program uploads and the microcontroller reboots, we should see the red and green LEDs alternating on and off every 1/2 second.
+When the program uploads and the microcontroller reboots, we should see the red 
+and green LEDs alternating on and off every 1/2 second.
 
 
 \vspace{2mm}
 \section*{Conclusion}
-This completes the the Getting Started / Hello World lesson.  As promised, it was boring.  In the next lesson, we will introduce the LCD screen.
+This completes the the Getting Started / Hello World lesson.  In the next lesson, 
+we will introduce the LCD screen.
 
 \end{document}
