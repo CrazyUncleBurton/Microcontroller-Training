@@ -1,6 +1,6 @@
 # Microcontroller Training v1
 by Bryan A. "CrazyUncleBurton" Thompson  
-Last Updated 3/10/2026  
+Last Updated 3/12/2026  
 
 ## Overview
 
