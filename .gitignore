@@ -4,7 +4,7 @@
 .vscode/launch.json
 .vscode/ipch
 
-# LaTeX build outputs
+# LaTeX build directories and temp files
 **/build/
 *.aux
 *.log
@@ -15,3 +15,22 @@
 *.toc
 *.lof
 *.lot
+*.bbl
+*.blg
+*.idx
+*.ind
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.nlo
+*.nls
+*.ilg
+
+# LaTeX temporary files
+*.backup
+*.temp
+*~

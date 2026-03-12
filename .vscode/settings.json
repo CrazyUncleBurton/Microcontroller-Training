@@ -1,37 +1,12 @@
 {
   "latex-workshop.latex.tools": [
     {
-      "name": "latexmk",
-      "command": "C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\latexmk.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-pdf",
-        "-auxdir=%DIR%/build",
-        "-outdir=%DIR%",
-        "%DOC%"
-      ]
-    },
-    {
       "name": "pdflatex",
-      "command": "C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\pdflatex.exe",
+      "command": "pdflatex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "--aux-directory=%DIR%/build",
-        "%DOC%"
-      ]
-    },
-    {
-      "name": "xelatex",
-      "command": "C:\\Program Files\\MiKTeX\\miktex\\bin\\x64\\xelatex.exe",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "--aux-directory=%DIR%/build",
         "%DOC%"
       ]
     }
@@ -39,24 +14,15 @@
   "latex-workshop.latex.recipes": [
     {
       "name": "pdflatex",
-      "tools": [
-        "pdflatex"
-      ]
-    },
-    {
-      "name": "xelatex",
-      "tools": [
-        "xelatex"
-      ]
-    },
-    {
-      "name": "latexmk (pdf)",
-      "tools": [
-        "latexmk"
-      ]
+      "tools": ["pdflatex"]
     }
   ],
   "latex-workshop.latex.recipe.default": "pdflatex",
-  "latex-workshop.latex.outDir": "%DIR%",
-  "editor.inlineSuggest.enabled": false
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.view.pdf.viewer": "tab",
+  "editor.inlineSuggest.enabled": false,
+  "workbench.editorAssociations": {
+    "*.pdf": "latex-workshop-pdf-hook",
+    "*.copilotmd": "vscode.markdown.preview.editor"
+  }
 }

@@ -15,8 +15,7 @@
 \maketitle
 
 \section*{Overview}
-
-This lesson will show you how to compile and upload a basic “Hello World” 
+This lesson will show you how to compile and upload a basic "Hello World" 
 program to a microcontroller.
 
 \section*{Theory}
@@ -48,7 +47,7 @@ The following hardware is needed for this lesson:
   \item Upload a basic “Hello World” program to the development board
   \item Test the program
 \end{itemize}
-\vspace{2mm}
+\newpage
 
 
 \section*{The M5Stack Tab5 Microcontroller Development Board}
@@ -108,16 +107,15 @@ and accessories:  \\
     
 \end{enumerate}
 
-\vspace{2mm}
+\newpage
 
 \section*{The PORT.A Input / Output Connector}
-
+\vspace{5mm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = .2\linewidth]{m5stack-porta-connector.png}
     \caption{The PORT.A Input/Output Connector}
 \end{figure}
-\vspace{2mm}
 \vspace{5mm}
 The connector is used to quickly connect various sensors to the Tab5. It 
 enables quick, plug-and-play connectivity for sensors and actuators, often 
@@ -126,10 +124,9 @@ UART serial communication as well as I2C serial communication.  We call this
 Rapid Prototyping because the circuit can be built without building a circuit 
 board. 
 \vspace{5mm}
-
 This is a 4-pin HY2.0-4P Grove connector.  It's close to a 4 pin JST PH connector.
 
-\vspace{2mm}
+\vspace{5mm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = .8\linewidth]{porta-table.png}
@@ -155,22 +152,29 @@ There are four pins on the PORT.A connector:
 \end{itemize}
 \vspace{2mm}
 PORT.A has some other special functions which we will cover in later lessons.
-\vspace{75mm}
+\newpage
 
 \section*{The Dual LED Module}
 For any Hello World program, we need an LED to blink.  Unfortunately, 
 there's not a blinkable LED built into our Tab5 Dev board (a huge oversight on 
 the part of M5Stack).  CrazyUncleBurton didn't let that stop him - he bought 
 some prototype modules and built his own!
-\vspace{2mm}
+\vspace{5mm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = .8\linewidth]{dual-led-module.png}
-    \caption{The Dual LED Module Schematic}
+    \includegraphics[width = .4\linewidth]{dual-led-module.png}
+    \caption{The Dual LED Module}
 \end{figure}
-\vspace{2mm}
+\vspace{5mm}
 There are two independent circuits inside the Dual LED Module.  OK, they share 
 the ground terminal of the port, but that's it.
+\vspace{5mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = .8\linewidth]{dual-led-circuit.png}
+    \caption{The Dual LED Module Schematic}
+\end{figure}
+\vspace{10mm}
 
 The green LED is connected to GPIO pin G53.  When GPIO pin G53 is set to a 
 logic high, the ESP32 outputs 3.3V to pin G53 and the green LED lights. When
@@ -189,19 +193,19 @@ microcontroller and the LED.
 \section*{Connections}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = .6\linewidth]{cable.png}
+    \includegraphics[width = .4\linewidth]{cable.png}
     \caption{The M5Stack Grove Cable}
 \end{figure}
-\vspace{2mm}
+\vspace{5mm}
 Note that there are polarity tabs molded into the cable plug and the 
 corresponding sockets which only lets the cable connect the proper way:
-\vspace{2mm}
+\vspace{5mm}
 \begin{figure}[H]
     \centering
-    \includegraphics[width = .5\linewidth]{cable-end.png}
+    \includegraphics[width = .4\linewidth]{cable-end.png}
     \caption{Grove Connector Polarizing Tabs}
 \end{figure}
-\vspace{2mm}
+\vspace{5mm}
 \begin{enumerate}
     \item To connect the Dual LED module to the Tab5 dev board, use the 4 wire
     cable supplied with the module. Plug one end into the Dual LED module. Plug
@@ -209,26 +213,30 @@ corresponding sockets which only lets the cable connect the proper way:
     \item Connect the Tab5 USB-C port to the computer using whatever USB cable 
     this takes.
 \end{enumerate}
-
-\vspace{2mm}
-
+\vspace{10mm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width = 1\linewidth]{led-module-connected.png}
+    \caption{Dual LED Module Connected to Tab5}
+\end{figure}
+\newpage
 \section*{The Program}
 
 Our program is located in the folder \path{02-hello-world/code/2-blink}:
 
-\vspace{2mm}
+\vspace{5mm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = 1\linewidth]{program-1.png}
     \caption{Hello World Program - Part 1}
 \end{figure}
-\vspace{2mm}
+\vspace{5mm}
 \begin{figure}[H]
     \centering
     \includegraphics[width = 1\linewidth]{program-2.png}
     \caption{Hello World Program - Part 2}
 \end{figure}
-\vspace{2mm}
+\vspace{5mm}
 
 Lines 1-5 are a block comment that lets the user know who to yell at when this 
 doesn't work.
@@ -279,7 +287,7 @@ the red LED on.
 Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before 
 proceding.
 
-\vspace{50mm}
+\newpage
 \section*{Compiling and Uploading the Program}
 
 The microcontroller has \textit{bootloader} code running, which 
@@ -334,17 +342,22 @@ The compiled program is stored in FLASH memory on the microcontroller.  FLASH
 memory is persistent - it retains the program even after the power has been 
 isconnected!
 
-\vspace{2mm}
+\vspace{5mm}
 
-
-\vspace{2mm}
 \section*{Running the Program}
 
 When the program uploads and the microcontroller reboots, we should see the red 
 and green LEDs alternating on and off every 1/2 second.
 
+\vspace{5mm}
 
-\vspace{2mm}
+\section*{Experimenting}
+
+Change the delay(500) lines to read delay(100).  Then build and upload again.
+You should see the rate of flashing speed up!
+
+\vspace{5mm}
+
 \section*{Conclusion}
 This completes the the Getting Started / Hello World lesson.  In the next lesson, 
 we will introduce the LCD screen.

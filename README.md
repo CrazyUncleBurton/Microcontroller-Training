@@ -35,6 +35,7 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 8. Graphical User Interface (LVGL and Squareline Studio) - Not Started
 9. Source Control - Started
 10. Task Scheduler / FreeRTOS - Not Started
+11. State Machines - Not Started
 11. Debugging
 12. Testing
 13. Security (AES/SHA/RSA/ECC/Secure Boot/Flash Encryption/HMAC/RNG)
