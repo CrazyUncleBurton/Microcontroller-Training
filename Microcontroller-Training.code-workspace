@@ -7,5 +7,11 @@
 			"path": "lessons/02-hello-world/code/2-blink"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"latex-workshop.view.pdf.viewer": "tab",
+		"workbench.editorAssociations": {
+			"*.pdf": "latex-workshop-pdf-hook",
+			"*.copilotmd": "vscode.markdown.preview.editor"
+		}
+	}
 }
