@@ -37,8 +37,8 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 10. Task Scheduler / FreeRTOS - Not Started
 11. State Machines - Not Started
 12. Memory - Not Started
-13. Debugging
-14. Testing
+13. Debugging - Not Started
+14. Testing - Not Started
 15. Security (AES/SHA/RSA/ECC/Secure Boot/Flash Encryption/HMAC/RNG)
 16. Graphics Subsystem (that may be GUI above)
 17. CPU Subsystem (Dual Cores/Vector AI Accel/Interrupt Controller/JTAG)
@@ -47,16 +47,6 @@ Note:  The libraries are sufficiently generic that the programs will work with o
 20. Power Management (Clock Domains / PLL / Power Domains / Sleep Controller)
 
 ## Things to Learn / Solve
-
-* Migrate Old website to Hosted Wordpress
-* Finish the Microcontroller Tutorials
-* How do we update products in the field?
-* How to get firmware to only install on our hardware and not on generic?
-* UI for 84-89 Cluster Tester
-* How to use Multi Root Workspace
-* GIT Tutorial 
-* Low Power / Sleep / Deep Sleep
-* Augment AI with Python Persistent Memory and knowledge of goals
 
 ## Useful References
 
