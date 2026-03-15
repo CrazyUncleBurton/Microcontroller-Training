@@ -4,4 +4,4 @@ by Bryan A. "CrazyUncleBurton" Thompson
 Last Updated 3/8/2026  
 
 ## Goals
-* Can we add DMA?
+* 

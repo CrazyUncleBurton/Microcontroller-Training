@@ -57,7 +57,7 @@ Personal Website <crazyuncleburton.com> and Email <crazyuncleburton@gmail.com>
 
 ### M5Stack Links
 
-M5Stack Tab5 <https://docs.m5stack.com/en/core/Tab5>
+M5Stack Tab5 Documentation <https://docs.m5stack.com/en/core/Tab5>
 
 M5Stack GitHub Software <https://github.com/m5stack>
 
