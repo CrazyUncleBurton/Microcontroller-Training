@@ -67,6 +67,12 @@ M5Stack M5Unified <https://docs.m5stack.com/en/arduino/m5unified/helloworld>
 
 M5Stack M5GFX <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx>
 
+M5Stack M5GFX Setup: <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx>
+
+M5Stack M5GFX API: <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx_functions>
+
+M5Stack M5GFX GitHub Examples:  <https://github.com/m5stack/M5GFX/tree/master/docs>
+
 M5Canvas <https://docs.m5stack.com/en/arduino/m5gfx/m5gfx_canvas>
 
 M5UnitUnified <https://github.com/m5stack/M5UnitUnified>
