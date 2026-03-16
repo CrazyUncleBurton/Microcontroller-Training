@@ -6,21 +6,25 @@
 \usepackage[skip=10pt, indent=20pt]{parskip}
 \graphicspath{{./figures/}{./lessons/03-lcd/assets/docs/figures/}}
 
-\title{Lesson 23 - The LCD Display}
+\title{Lesson 3 - The LCD Display}
 \author{Bryan A. \textit{CrazyUncleBurton} Thompson \\ \textit{bryan@batee.com}}
-\date{March 11, 2026}
+\date{March 16, 2026}
 
 \begin{document}
 
 \maketitle
 
 \section*{Overview}
+This lesson will introduce outputting to the LCD display and reading from 
+the touchscreen.
+\vspace{3mm}
 
-This lesson will introduce outputting to the LCD display.
 
 \section*{Theory}
-There is a lot to learn in the LCD lesson, so we will keep the circuit 
-construction to a minimum.
+We can output text and graphics to the LCD many different ways and discusss 
+the advantages and disadvantages of each way.
+\vspace{3mm}
+
 
 \section*{Hardware Required}
 
@@ -28,27 +32,25 @@ The following hardware is needed for this lesson:
 
 1 - M5Stack Tab5 Microcontroller Development Board
 
-1 - M5Stack Dual Button Module
+1 - M5Stack Unit ENV III Environmental Sensor
 
-1 - 4 wire M5Stack sensor cable (comes with the Dual Button Module)
+1 - 4 wire M5Stack sensor cable (comes with the above module)
 
 1 - USB cable to connect the Tab5 USB-C port to your PC
-\vspace{30mm}
+\vspace{3mm}
 
 
 \section*{Objectives}
-
 \begin{itemize}
   \item Draw static Text to the LCD using M5Unified.
   \item Draw static graphics to the LCD using M5GFX.
   \item Draw changing data to the LCD using M5Canvas.
+  \item Read the Touchscreen Data.
   \item Build our Second Circuit.
   \item Build, Compile and Test the Programs.
-  \item Note the differences in how data is displayed via various display 
-  modes.
+  \item Discuss differences and advantages of the various modes presented.
 \end{itemize}
-\vspace{2mm}
-
+\vspace{3mm}
 
 \section*{The Tab5 LCD Display}
 
@@ -73,80 +75,125 @@ There are many ways that we can write to this display:
   in the later GUI lesson.
 
 \end{itemize}
-\vspace{2mm}
+\vspace{3mm}
 
+\section*{The LCD Text Program}
+\vspace{3mm}
 
-\section*{Connections}
-\vspace{2mm}
+\section*{LCD Text Connections}
 
-\section*{The Program}
-\vspace{2mm}
+\vspace{3mm}
 
-
-\section*{Compiling and Uploading the Program}
-
-The microcontroller has \textit{bootloader} code running, which 
-helps VS Code to upload programs to the microcontroller.  This code is preloaded
-on the Tab5 at the factory, and remains in place when programs are uploaded to 
-the microcontroller.
-
+\section*{Compiling and Uploading the LCD Text Program}
+\vspace{3mm}
 \begin{enumerate}
     \item See the upload port icon at the bottom of the screen. Ensure the 
     upload port is set to Auto. 
-    \vspace{2mm}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = .25\linewidth]{upload-port.png}
-        \caption{PlatformIO: Upload Port}
-    \end{figure}
-    \vspace{2mm}
-    \item To compile the program and upload it to the microcontroller, click 
-    on the \textbf{PlatformIO: Build} icon at the bottom of the screen:
-    \vspace{2mm}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = .25\linewidth]{upload.png}
-        \caption{PlatformIO: Upload}
-    \end{figure}
-    \vspace{2mm}
+    \vspace{3mm}
+
     \item Make sure the \textbf{Switch PlatformIO Project Environment} icon 
-    at the bottom of the screen is set to \textbf{2-blink}.  This will ensure
-    that we compile the correct code (there are many individual programs in
-    the Microcontroller Training folder):
-    \vspace{2mm}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = .5\linewidth]{switch-platformio-project-environment.png}
-        \caption{Switch PlatformIO Project Environment}
-    \end{figure}
-    \vspace{25mm}
+    at the bottom of the screen is set to \textbf{3a-lcd-text}.
+    \vspace{3mm}
+
+    \item To compile the program and upload it to the microcontroller, click 
+    on the \textbf{PlatformIO: Build} icon at the bottom of the screen.
+    \vspace{3mm}
 
     \item The results of the compile and upload process are presented in the 
-    terminal window at the bottom of the screen:
-    \vspace{2mm}
-    \begin{figure}[H]
-        \centering
-        \includegraphics[width = 1\linewidth]{compiled.png}
-        \caption{Program Compiled and Uploaded Successfully}
-    \end{figure}
-    \vspace{2mm}
+    terminal window at the bottom of the screen.
+    \vspace{3mm}
 
 \end{enumerate}
+\vspace{3mm}
 
-The compiled program is stored in FLASH memory on the microcontroller.  FLASH 
-memory is persistent - it retains the program even after the power has been 
-isconnected!
+\section*{Running the LCD Text Program}
 
-\vspace{2mm}
-\section*{Running the Program}
+When the program uploads and the microcontroller reboots, we should see text 
+appear on the LCD!
+\vspace{3mm}
 
-When the program uploads and the microcontroller reboots, we should see the red 
-and green LEDs alternating on and off every 1/2 second.
+\section*{The LCD Data Program}
+\vspace{3mm}
+
+\section*{LCD Data Connections}
+\vspace{3mm}
+
+\section*{Compiling and Uploading the LCD Data Program}
+\vspace{3mm}
+\begin{enumerate}
+    \item See the upload port icon at the bottom of the screen. Ensure the 
+    upload port is set to Auto. 
+    \vspace{3mm}
+
+    \item Make sure the \textbf{Switch PlatformIO Project Environment} icon 
+    at the bottom of the screen is set to \textbf{3a-lcd-data}.  
+    \vspace{3mm}
+
+    \item To compile the program and upload it to the microcontroller, click 
+    on the \textbf{PlatformIO: Build} icon at the bottom of the screen.
+    \vspace{3mm}
+
+    \item The results of the compile and upload process are presented in the 
+    terminal window at the bottom of the screen.
+    \vspace{3mm}
+
+\end{enumerate}
+\vspace{3mm}
+
+\section*{Running the LCD Data Program}
+
+When the program uploads and the microcontroller reboots, we should see data 
+appear on the LCD, with smoothly changing screen updates!
+\vspace{3mm}
+
+\section*{The LCD Graphics Program}
+\vspace{3mm}
+
+\section*{LCD Graphics Connections}
+\vspace{3mm}
+
+\section*{Compiling and Uploading the LCD Graphics Program}
+\vspace{3mm}
+\begin{enumerate}
+    \item See the upload port icon at the bottom of the screen. Ensure the 
+    upload port is set to Auto. 
+    \vspace{3mm}
+
+    \item Make sure the \textbf{Switch PlatformIO Project Environment} icon 
+    at the bottom of the screen is set to \textbf{3a-lcd-graphics}.
+    \vspace{3mm}
+
+    \item To compile the program and upload it to the microcontroller, click 
+    on the \textbf{PlatformIO: Build} icon at the bottom of the screen.
+    \vspace{3mm}
+
+    \item The results of the compile and upload process are presented in the 
+    terminal window at the bottom of the screen.
+    \vspace{3mm}
+
+\end{enumerate}
+\vspace{3mm}
+
+\section*{Running the LCD Graphics Program}
+
+When the program uploads and the microcontroller reboots, we should see 
+graphics appear on the LCD.  At the bottom of the screen, a Next button 
+lets us change to the next graphic screen.
+\vspace{3mm}
 
 
-\vspace{2mm}
 \section*{Conclusion}
-This completes the LCD Display lesson.  In the next lesson, we will cover 
-Digital Inputs and Outputs in much more detail than we have so far!
+This completes the LCD Display lesson.  We learned the following concepts:
+
+\begin{itemize}
+    \item Displaying static text on the LCD
+    \item Displaying dynamic data on the LCD
+    \item Displaying primitive graphics on the LCD
+    \item Creating touch-sensitive soft buttons
+\end{itemize}
+\vspace{3mm}
+
+In the next lesson, we will cover Digital Inputs and Outputs in much more 
+detail than we have so far!
 
 \end{document}
