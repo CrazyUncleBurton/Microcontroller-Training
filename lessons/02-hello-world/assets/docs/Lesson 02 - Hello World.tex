@@ -20,7 +20,7 @@ program to a microcontroller.
 \vspace{3mm}
 
 \section*{Theory}
-This is our first program and we’re learning a lot of things all at once. 
+This is our first program, and we’re learning a lot of things all at once. 
 We make the circuit as easy as possible by using a pre-built module which 
 only connects one way to the microcontroller.
 \vspace{3mm}
@@ -68,10 +68,9 @@ support for 2.4 GHz Wi-Fi 6, Bluetooth 5 (LE), Zigbee 3.0, and Thread 1.3.
 It has a 5” LCD touchscreen, camera, microSD slot, Audio Inputs and Outputs, 
 Microphones, a Real Time Clock, a 6-axis accelerometer/gyro sensor, and many 
 ways to connect to external circuits!
-
 \newpage
 
-The manufacturers datasheet for the Tab5 is located here.  You can find 
+The manufacturers' datasheet for the Tab5 is located here.  You can find 
 information like schematics, external hardware connections and more: \\ 
 \url{https://docs.m5stack.com/en/core/Tab5}
 
@@ -90,8 +89,9 @@ and accessories:  \\
 \end{figure}
 \vspace{3mm}
  
+\subsection*{Powering the Tab5 On and Off}
 \begin{enumerate}
-    \item We can supply power to the Tab5 through its USB-C port.  Connect 
+    \item We can supply power to the Tab5 through its USB-C port.  Connect
     the Tab5 USB-C port to your computer with a USB cable.
     \item The white “U” shaped button on the left is the On/Reset/Off button.  
     \item Press the button once to turn on the screen.  You should see the 
@@ -119,12 +119,10 @@ and accessories:  \\
     \caption{The PORT.A Input/Output Connector}
 \end{figure}
 \vspace{3mm}
-The enables quick, plug-and-play connectivity for sensors and actuators. PORT.A can
-be configured for GPIO digital I/O, or UART serial communication as well as 
-I2C serial communication. 
-\vspace{3mm}
+PORT.A can be configured for GPIO digital I/O and serial communication via UART
+or I2C. This enables quick, plug-and-play connectivity for sensors and actuators.
 
-This is a 4-pin HY2.0-4P Grove connector.  It's close to a 4 pin JST PH connector.
+This is a 4-pin HY2.0-4P Grove connector.  It's similar to a 4 pin JST PH connector.
 
 \vspace{3mm}
 \begin{figure}[H]
@@ -137,27 +135,30 @@ This is a 4-pin HY2.0-4P Grove connector.  It's close to a 4 pin JST PH connecto
 There are four pins on the PORT.A connector:
 
 \begin{itemize}
-    \item Black - GND - This is the common reference terminal against which 
+    \item Black - GND: Ground is the common reference terminal against which 
     other outputs are measured.
-    \item Red - 5V - This is a 5V reference / power supply from the port, 
-    intended to power any sensors or actuators.  Why is it 5V when we're 
-    working in a 3.3V ecosystem?  My guess is to let us power and communicate 
-    with 5V sensors as well as 3.3V ones.  
-    \item Yellow - G53 - This is connected to pin G53 on the microcontroller.  
-    It can be turned on and off programmatically. When it's on, it will be 
-    +3.3V with respect to ground.  When it's off, it will be 0V.
-    \item White - G54 - This is connected to pin G54 on the microcontroller.  
-    It can be turned on and off programmatically. When it's on, it will be 
-    +3.3V with respect to ground.  When it's off, it will be 0V.
+    \item Red - 5V: This is a 5V reference / power supply from the port, 
+    intended to power any sensors or actuators.  \textit{Why is it 5V when we're 
+    working in a 3.3V ecosystem?}  My guess is to let us power and communicate 
+    with 5V sensors as well as 3.3V ones.
+    \item Yellow - G53 and White - G54:
+    The Yellow wire is connected to pin G53 on the microcontroller.
+    The White wire is connected to pin G54 on the microcontroller.  
+    These wires can be turned on and off by the program. When on, the wire will be 
+    +3.3V with respect to ground.  When off, it will be 0V.
 \end{itemize}
+\newpage
 \vspace{3mm}
 
-
 \section*{The Dual LED Module}
-For any Hello World program, we need an LED to blink.  Unfortunately, 
-there's not a blinkable LED built into our Tab5 Dev board (a huge oversight on 
-the part of M5Stack).  CrazyUncleBurton didn't let that stop him - he bought 
-some prototype modules and built his own!
+In embedded electronics programming, our version of the Hello World program
+is called Blinky (or just "blink"): we simply try to make an LED blink because that
+is the simplest way to prove that the microcontroller is loading and executing our
+programs.
+
+Unfortunately, there's not a blinkable LED built into our Tab5 Dev board
+(a huge oversight on the part of M5Stack).  But CrazyUncleBurton didn't let that stop
+him - he bought some prototype modules and built his own!
 \vspace{3mm}
 \begin{figure}[H]
     \centering
@@ -165,7 +166,7 @@ some prototype modules and built his own!
     \caption{The Dual LED Module}
 \end{figure}
 \vspace{3mm}
-There are two independent circuits inside the Dual LED Module.  OK, they share 
+There are two independent circuits inside the Dual LED Module.  Well, they share 
 the ground terminal of the port, but that's it.
 \vspace{3mm}
 \begin{figure}[H]
@@ -177,24 +178,21 @@ the ground terminal of the port, but that's it.
 
 The green LED is connected to GPIO pin G53.  When GPIO pin G53 is set to a 
 logic high, the ESP32 outputs 3.3V to pin G53 and the green LED lights. When
-GPIO pin G53 is set to a logic low, the ESP32 outputs 0V to pin G53 and the 
-green LED turns off. A 150$\Omega$ resistor limits current to about 8.6mA to 
-protect the LED and the microcontroller and the LED.  
+pin G53 is set to a logic low, the ESP32 outputs 0V to pin G53 and the 
+green LED turns off. The red LED works in exactly the same way, except that its
+signal is passed through GPIO pin G54. 
 
-The red LED is connected to GPIO G54.  When GPIO Pin G54 is set to a logic high, 
-the ESP32 outputs 3.3V to pin G54 and the red LED lights.  When GPIO pin G54 is
-set to a logic low, the ESP32 outputs 0V to pin G53 and the green LED turns off. 
-A 1.8K$\Omega$ resistor limits current to 0.72mA to protect the LED and the 
-microcontroller and the LED.  
-
+In the green LED's circuit, a 150$\Omega$ (ohms) resistor limits current to about
+8.6mA.  In the red LED's circuit, a 1.8K$\Omega$ resistor limits current to about
+0.72mA. Limiting the current is necessary to protect the microcontroller and the LED.  
 \vspace{3mm}
 
 \section*{Connections}
 
 \begin{enumerate}
     \item To connect the Dual LED module to the Tab5 dev board, use the 4 wire
-    cable supplied with the module. Plug one end into the Dual LED module. Plug
-    the other end into the Tab5 dev board.  
+    cable supplied with the module. Plug one end into the Dual LED module and
+    the other into the Tab5 dev board.  
     \vspace{3mm}
 
     \begin{figure}[H]
@@ -203,8 +201,7 @@ microcontroller and the LED.
         \caption{Dual LED Module Connected to Tab5}
     \end{figure}
     \vspace{3mm}
-    \item Connect the Tab5 USB-C port to the computer using whatever USB cable 
-    this takes.
+    \item Connect the Tab5 to the computer via the USB-C port.
 \end{enumerate}
 \newpage
 
@@ -224,15 +221,16 @@ Lines 1-5 are a block comment that lets the user know who to yell at when this
 doesn't work.
 \vspace{3mm}
 
-Line 8 is an "include".  This is a library / module / shared code which adds 
-some Arduino-style commands.  Specifically, we want the \textbf{pinMode()} 
-command which lets us declare the GPIO pin to be an output, and the 
-\textbf{digitalWrite()} command which will turn GPIO pins on and off.
+Line 8 is an "include" directive.  This tells the C++ compiler's linker to link a
+"header file" named "Arduino.h" to the top of this C++ source code file.
+This header file contains code from Arduino that we can borrow to use in our own
+programs.  Specifically, we want the \textbf{pinMode()} 
+command, which lets us declare the GPIO pin to be an output, and the 
+\textbf{digitalWrite()} command, which will turn GPIO pins on and off.
 
-Lines 11 and 12 create global variables of the integer type.  The variables are 
-named greenLEDPin, which we set to GPIO 53, and redLEDPin, which we set to GPIO 
-Pin 54.  
-\newpage
+Lines 11 and 12 initialize global variables of the integer type.  The variables are 
+named \textbf{greenLEDPin}, which we set to 53 (for GPIO pin 53), and \textbf{redLEDPin},
+which we set to 54 (for GPIO pin 54).  
 
 \begin{figure}[H]
     \centering
@@ -241,54 +239,60 @@ Pin 54.
 \end{figure}
 \vspace{3mm}
 
-Lines 15-19 form the setup() function.  This is standard Arduino form, and 
-includes all the stuff that only needs to happen once at the time of 
-microcontroller turn-on.  The pinMode() commands make the pins referenced by 
-the variables \textbf{greenLEDPin} and \textbf{redLEDPin} to be digital outputs.
+On lines 15 and 22, you will see two functions: \textbf{setup()} and \textbf{loop()}.
+
+In standard Arduino programs, you prepare or \textit{initialize} ("init") the
+microcontroller and any additional components with code in the setup() function.
+This function is run \textit{once} whenever the microcontroller is powered on or reset.
+
+In lines 17 and 18, we set GPIO pins 53 and 54 to be digital outputs by calling
+the pinMode() function on variables \textbf{greenLEDPin} and \textbf{redLEDPin}.
 
 Digital output pins can output two levels:  
 \begin{itemize}
-    \item Digital logic level 1, or High, which makes that output pin +3.3V
-    \item Digital logic level 0, or Low, which makes that output pin 0V.
+    \item Digital logic level 1, or "high," which makes that output pin +3.3V
+    \item Digital logic level 0, or "low," which makes that output pin 0V.
 \end{itemize}
 
-Lines 22-30 for the loop() function.  This is standard Arduino form, and 
-includes the stuff that runs in order from top to bottom.  When it gets to the
-end of the list of stuff in the loop function, it loops and runs that stuff 
-again. 
+Once the setup() function finishes, it hands control over to the loop() function.
+
+The loop() function contains all of the code that we would consider "the program."
+When the function ends, it starts over and runs all of the same code again,
+just like the name suggests.
 
 \vspace{3mm}
-
-\textbf{Important Point:} Embedded programs are designed to never end 
-- they run as long as the device is turned on!
-
+\textbf{Important Point:} Most embedded programs are required to loop infinitely!
+Otherwise, once the program is finished, the microcontroller will run out of
+instructions and do absolutely nothing until the device is reset.
 \vspace{3mm}
 
-Lines 24 and 25 sets \textbf{greenLEDPin} to \textbf{High}, which turns the 
-green LED on, and sets the \textbf{redLEDPin} to \textbf{Low}, which turns 
-the red LED off.
+Line 24 sets \textbf{greenLEDPin} to \textbf{High}, which turns the green LED on,
+and line 25 sets the \textbf{redLEDPin} to \textbf{Low}, which turns the red LED off.
 
-Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before 
-proceeding.
+Line 26 is a delay.  It waits 500 milliseconds (one half-second) before proceeding.
 
-Lines 27 and 28 sets \textbf{greenLEDPin} to \textbf{Low}, which turns the 
-green LED off, and sets the \textbf{redLEDPin} to \textbf{High}, which turns 
-the red LED on.
+Lines 27 and 28 do the reverse of lines 24 and 25. Line 27 sets \textbf{greenLEDPin}
+to \textbf{Low}, which turns the green LED off, and line 28 sets the \textbf{redLEDPin}
+to \textbf{High}, which turns the red LED on.
 
 Lines 26 is a delay.  It waits 500 milliseconds (one-half second) before 
 proceding.
-
 \newpage
+
 \section*{Compiling and Uploading the Program}
 
-The microcontroller has \textit{bootloader} code running, which 
-helps VS Code to upload programs to the microcontroller.  This code is preloaded
-on the Tab5 at the factory, and remains in place when programs are uploaded to 
-the microcontroller.
+When the microcontroller is powered on, it first runs its \textit{bootloader} code,
+which in our case will help VS Code upload programs to the microcontroller.
+The bootloader is preloaded on the Tab5 at the factory, and remains in place when programs
+are uploaded to the microcontroller.
+
+When a program is uploaded to the Tab5, it is stored in FLASH memory on the
+microcontroller.  FLASH memory is \textit{persistent} - it retains the program even after
+it loses power. It is memory though, not like a hard drive, which is a disk.
 
 \begin{enumerate}
     \item See the upload port icon at the bottom of the screen. Ensure the upload 
-    port is set to Auto. 
+    port is set to \textbf{Auto}. 
     \vspace{3mm}
     \begin{figure}[H]
         \centering
@@ -318,7 +322,6 @@ the microcontroller.
     \end{figure}
     \vspace{3mm}
 
-
     \item The results of the compile and upload process are presented in the 
     terminal window at the bottom of the screen:
     \vspace{3mm}
@@ -330,36 +333,40 @@ the microcontroller.
     \vspace{3mm}
 
 \end{enumerate}
-
-The compiled program is stored in FLASH memory on the microcontroller.  FLASH 
-memory is persistent - it retains the program even after the power has been 
-isconnected!
-
 \vspace{3mm}
-
-\section*{Running the Program}
 
 When the program uploads and the microcontroller reboots, we should see the red 
-and green LEDs alternating on and off every 1/2 second.
+and green LEDs alternating on and off every half-second, or 500 milliseconds.
 
+If you have a battery for your Tab5, you can disconnect it from the computer and
+reset. Since the program is stored in FLASH memory, it should work just as before!
 \vspace{3mm}
 
-\section*{Changing the Execution Speed of the Program}
+\section*{Modifying the Program}
 
 Change the delay(500) lines to read delay(100).  Then build and upload again.
-You should see the rate of flashing speed up!
+You should see the LEDs blink much faster!
 
+\textbf{Exercise: on-on $\rightarrow$ off-off program}
+
+Using only the \textbf{digitalWrite()} and \textbf{delay()} functions, write a program
+that does the following:
+
+\centering
+Green ON $\rightarrow$ Red ON $\rightarrow$ Green OFF $\rightarrow$ Red OFF
+
+Use delays so that the LEDs do not toggle on and off at the same time.
 \newpage
 
 \section*{Conclusions}
-This completes the the Getting Started / Hello World lesson.  We learned these concepts:
+This completes the Hello World lesson.  We learned these concepts:
 
 \begin{itemize}
-    \item Connect our first circuit to the microcontroller
-    \item Configure pins on the microcontroller as digital outputs
-    \item Turn the pin on and off programatically
-    \item Compile and upload a program to the microcontroller
-    \item How to change the speed the program executes
+    \item How to connect a circuit to the microcontroller
+    \item How to configure pins on the microcontroller as digital outputs
+    \item How to turn the pin on and off programatically
+    \item How to compile and upload a program to the microcontroller
+    \item How to make the microcontroller wait for a specific period of time
 \end{itemize}
 \vspace{3mm}
 
