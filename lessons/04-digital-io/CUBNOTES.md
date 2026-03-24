@@ -1,7 +1,7 @@
 # Digital Input and Output
 by Bryan A. "CrazyUncleBurton" Thompson  
 <bryan@batee.com>  
-Last Updated 3/9/2026  
+Last Updated 3/24/2026  
 
 ## Goals
 
@@ -12,8 +12,25 @@ floating inputs
 pullups
 pulldowns
 debounce
+Port Reads and Writes
 
-----------
+
+Adding Digital Input and output
+MCP23017 Port Expander
+Shift Register / chain of shift registers can be inputs or outputs
+3.3V/5V input tolerant.
+25mA/pin
+
+
+Extending IO indefinitely
+
+74HC595 Shift register (Serial In / Parallel Out)
+Digital Latch (PIPO)
+74HC165 8 Bit Parallel Load Shift Register (Parallel In Serial Out)
+All In One 74ALS299 Parallel In Parallel Out Shift Register
+
+
+
 
 # Lesson 4 — Digital Inputs and Outputs
 
@@ -67,10 +84,6 @@ GPIO30 / 27 / 26 / 28 / 29	audio codec I2S
 GPIO31, GPIO32:  I2C    They are open drain outputs.  They need a pullup to produce a voltage output.
 GPIO36	camera clock
 
-----------
 
-Adding Digital Input and output
-MCP23017 Port Expander
-Shift Register / chain of shift registers can be inputs or outputs
-3.3V/5V input tolerant.
-25mA/pin
+
+
